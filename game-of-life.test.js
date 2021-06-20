@@ -1,4 +1,5 @@
 const {Grid} = require('./game-of-life.js')
+const {Space} = require('./Space.js')
 
 describe('Game of life', () => {
 
@@ -14,5 +15,12 @@ describe('Game of life', () => {
         const GridToTest =  new Grid(4, 8)
         let result = GridToTest.gridView
         expect(result).toEqual([["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"]])
+    });
+
+    test('should return id of Space object', () => {
+        // Given
+        const SpaceToTest =  new Space(4, 8)
+        let result = SpaceToTest.position
+        expect(result).toEqual(`position-4-8`)
     });
 })

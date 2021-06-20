@@ -5,6 +5,7 @@
 // 2. Any live cell with more than three live neighbours dies, as if by overcrowding.
 // 3. Any live cell with two or three live neighbours lives on to the next generation.
 // 4. Any dead cell with exactly three live neighbours becomes a live cell.
+const {Space} = require('./Space.js')
 
 class Grid {
     constructor(rows, columns) {
