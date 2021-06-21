@@ -2,6 +2,8 @@ class Space {
     constructor(x, y) {
         this.x = x;
         this.y = y;
+        this.alive = false;
+        this.exist = true;
         this.id = `space-${x}-${y}`;
         this.cell = null;
     }
