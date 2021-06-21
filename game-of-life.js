@@ -32,7 +32,17 @@ class Grid {
     }
 
     get gridView() {
-        return this.spaces
+        let grid = this.spaces
+        const gridView =[];
+        for (let x = 0; x < grid.length; x++){
+            const columns = [];
+            for(let y =0; y< grid[y].length; y++){
+                const spaceVisual = '~'
+                columns.push(spaceVisual);
+            }
+            gridView.push(columns);
+        }
+        return gridView
     }
 }
 

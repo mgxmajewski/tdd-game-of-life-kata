@@ -14,7 +14,7 @@ describe('Game of life', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
         let result = GridToTest.gridView
-        expect(result).toEqual([["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"], ["x", "x", "x", "x"]])
+        expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
     });
 
     test('should return id of Space object', () => {
