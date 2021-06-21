@@ -19,7 +19,7 @@ class Grid {
         for (let x = 0; x < this.columns; x++) {
             let column = [];
             for (let y = 0; y < this.rows; y++) {
-                const space = 'x';
+                const space = new Space(x,y);
                 column.push(space);
             }
             spaces.push(column);
