@@ -23,4 +23,12 @@ describe('Game of life', () => {
         let result = SpaceToTest.position
         expect(result).toEqual(`position-4-8`)
     });
+
+    test('should return alive when checked', () => {
+        // Given
+        const SpaceToTest =  new Space(4, 8)
+        SpaceToTest.giveLife()
+        let result = SpaceToTest.isAlive
+        expect(result).toEqual(true)
+    });
 })

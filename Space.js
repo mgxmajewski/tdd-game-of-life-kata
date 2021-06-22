@@ -8,6 +8,14 @@ class Space {
         this.cell = null;
     }
 
+    giveLife(){
+        this.alive = true;
+    }
+
+    get isAlive(){
+        return this.alive
+    }
+
     get position(){
         return `position-${this.x}-${this.y}`
     }
