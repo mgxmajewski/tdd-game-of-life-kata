@@ -12,6 +12,10 @@ class Space {
         this.alive = true;
     }
 
+    killLife(){
+        this.alive = false;
+    }
+
     get isAlive(){
         return this.alive
     }

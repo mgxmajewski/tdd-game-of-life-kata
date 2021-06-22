@@ -31,4 +31,15 @@ describe('Game of life', () => {
         let result = SpaceToTest.isAlive
         expect(result).toEqual(true)
     });
+
+    test('should return false when cell first got alive then killed', () => {
+        // Given
+        const SpaceToTest =  new Space(4, 8)
+        // When
+        SpaceToTest.giveLife()
+        SpaceToTest.killLife()
+        // Then
+        let result = SpaceToTest.isAlive
+        expect(result).toEqual(false)
+    });
 })
