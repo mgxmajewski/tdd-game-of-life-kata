@@ -43,9 +43,7 @@ class Grid {
                 // Adds condition to exclude pixels outside image which are "forced" by 3x3 box
                 if ((x_box >= 0 && x_box < this.rows) && (y_box >= 0 && y_box < this.columns)) {
                     const neighbourCell = this.accessCell(x_box, y_box)
-
-                    console.log(neighbourCell)
-                    if(neighbourCell.isAlive){
+                    if(neighbourCell.isAlive&&neighbourCell!==cell){
                        result++
                    }
                 }
