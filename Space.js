@@ -8,21 +8,28 @@ class Space {
         this.cell = null;
     }
 
-    giveLife(){
+    giveLife() {
         this.alive = true;
     }
 
-    killLife(){
+    killLife() {
         this.alive = false;
     }
 
-    get isAlive(){
+    get isAlive() {
         return this.alive
     }
 
-    get position(){
+    get position() {
         return `position-${this.x}-${this.y}`
     }
-}
 
+    get xValue() {
+        return this.x
+    }
+
+    get yValue() {
+        return this.y
+    }
+}
 module.exports = {Space}

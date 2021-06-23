@@ -51,6 +51,18 @@ describe('Game of life', () => {
         expect(result).toEqual(false)
     });
 
+    test('should return sum of alive neighbour cells', () => {
+        // Given
+        const GridToTest =  new Grid(5, 8)
+        // When
+        GridToTest.accessCell(3,2).giveLife()
+        GridToTest.accessCell(2,2).giveLife()
+        const chosenCell = GridToTest.accessCell(3,3)
+        // Then
+        let result = GridToTest.analiseNeighbourCells(chosenCell)
+        expect(result).toEqual(2)
+    });
+
     test('should return give access to particular cell', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
