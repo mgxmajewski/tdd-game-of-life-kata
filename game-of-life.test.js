@@ -50,4 +50,14 @@ describe('Game of life', () => {
         let result = SpaceToTest.isAlive
         expect(result).toEqual(false)
     });
+
+    test('should return give access to particular cell', () => {
+        // Given
+        const GridToTest =  new Grid(4, 8)
+        // When
+        const chosenCell = GridToTest.accessCell(3,3)
+        // Then
+        let result = chosenCell.position
+        expect(result).toEqual('position-3-3')
+    });
 })

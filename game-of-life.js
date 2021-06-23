@@ -31,6 +31,10 @@ class Grid {
         return `rows: ${this.rows}, columns: ${this.columns}`
     }
 
+    accessCell(x,y){
+        return this.spaces[x][y]
+    }
+
     get gridView() {
         let grid = this.spaces
         const gridView =[];
