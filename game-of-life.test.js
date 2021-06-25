@@ -1,6 +1,7 @@
-// const {Grid} = require('./game-of-life.js')
+// const {Grid} = require('./GameOfLife.js')
 const {Space} = require('./Space.js')
 const {Grid} = require('./Grid.js')
+const {GameOfLife} = require('./GameOfLife.js')
 
 describe('Game of life', () => {
 
@@ -20,6 +21,16 @@ describe('Game of life', () => {
         let result = GridToTest.gridView
         // Then
         expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+    });
+
+    test('should check and return if initial life state is correct for one cell', () =>{
+        // Given
+        const GameOfLifeTest =  new GameOfLife (4, 8)
+        // When
+        GameOfLifeTest.initiateLife = [[1,2]]
+        let result = GameOfLifeTest.cellGrid.accessCell(1,2).isAlive
+        // Then
+        expect(result).toEqual(true)
     });
 
     test('should return id of Space object', () => {
