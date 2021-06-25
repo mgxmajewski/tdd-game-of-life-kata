@@ -1,5 +1,6 @@
-const {Grid} = require('./game-of-life.js')
+// const {Grid} = require('./game-of-life.js')
 const {Space} = require('./Space.js')
+const {Grid} = require('./Grid.js')
 
 describe('Game of life', () => {
 
@@ -51,7 +52,7 @@ describe('Game of life', () => {
         expect(result).toEqual(false)
     });
 
-    test('should return sum of alive neighbour cells', () => {
+    test('should return sum of alive neighbour cells (corner case)', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
         // When
@@ -60,6 +61,20 @@ describe('Game of life', () => {
         GridToTest.accessCell(0,1).giveLife()
         GridToTest.accessCell(0,0).giveLife()
         const chosenCell = GridToTest.accessCell(0,0)
+        // Then
+        let result = GridToTest.analiseNeighbourCells(chosenCell)
+        expect(result).toEqual(3)
+    });
+
+    test('should return sum of alive neighbour cells (middle case)', () => {
+        // Given
+        const GridToTest =  new Grid(20, 20)
+        // When
+        GridToTest.accessCell(6,6).giveLife()
+        GridToTest.accessCell(6,5).giveLife()
+        GridToTest.accessCell(5,6).giveLife()
+        GridToTest.accessCell(5,5).giveLife()
+        const chosenCell = GridToTest.accessCell(5,5)
         // Then
         let result = GridToTest.analiseNeighbourCells(chosenCell)
         expect(result).toEqual(3)
