@@ -11,7 +11,7 @@ describe('Game of life', () => {
         // When
         let result = GridToTest.size
         // Then
-        expect(result).toEqual('rows: 4, columns: 8');
+        expect(result).toEqual('columns: 4, rows: 8');
     });
 
     test('should return array of arrays with mocked spaces', () => {
@@ -30,7 +30,7 @@ describe('Game of life', () => {
         GameOfLifeTest.initiateLife = [[1,2]]
         let result = GameOfLifeTest.cellGrid.gridView
         // Then
-        expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "#", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+        expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "#", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
     });
 
     test('should return array of arrays with 3 alive spaces', () => {
@@ -40,7 +40,18 @@ describe('Game of life', () => {
         GameOfLifeTest.initiateLife = [[0,0], [0,2], [1,2]]
         let result = GameOfLifeTest.cellGrid.gridView
         // Then
-        expect(result).toEqual([["#", "~", "#", "~"], ["~", "~", "#", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+        expect(result).toEqual([["#", "~", "~", "~"], ["~", "~", "~", "~"], ["#", "#", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+    });
+
+    test('should return array of arrays with 3 alive spaces (8 columns 4 rows)', () => {
+        // Given
+        const GameOfLifeTest = new GameOfLife(8, 4)
+        // When
+        GameOfLifeTest.initiateLife = [[1,0], [2,0], [2,1]]
+        let result = GameOfLifeTest.cellGrid.gridView
+        console.log(result)
+        // Then
+        expect(result).toEqual([["~", "#", "#", "~", "~", "~", "~", "~"], ["~", "~", "#", "~", "~", "~", "~", "~"], ["~", "~", "~", "~", "~", "~", "~", "~"], ["~", "~", "~", "~", "~", "~", "~", "~"]])
     });
 
     test('should check and return if initial life state is correct for one cell', () =>{
@@ -114,13 +125,14 @@ describe('Game of life', () => {
 
     test('should return sum of alive neighbour cells (middle case)', () => {
         // Given
-        const GridToTest =  new Grid(20, 20)
+        const GridToTest =  new Grid(20, 10)
         // When
         GridToTest.accessCell(6,6).giveLife()
         GridToTest.accessCell(6,5).giveLife()
         GridToTest.accessCell(5,6).giveLife()
         GridToTest.accessCell(5,5).giveLife()
         const chosenCell = GridToTest.accessCell(5,5)
+        console.log(GridToTest)
         // Then
         let result = GridToTest.analiseNeighbourCells(chosenCell)
         expect(result).toEqual(3)
