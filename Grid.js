@@ -1,21 +1,21 @@
 const {Space} = require('./Space.js')
 
 class Grid {
-    constructor(rows, columns) {
-        this.rows = rows
+    constructor(columns, rows) {
         this.columns = columns
+        this.rows = rows
         this.spaces = this.createSpace();
     }
 
     createSpace() {
         const spaces = [];
         for (let x = 0; x < this.columns; x++) {
-            let column = [];
+            let rows = [];
             for (let y = 0; y < this.rows; y++) {
                 const space = new Space(x,y);
-                column.push(space);
+                rows.push(space);
             }
-            spaces.push(column);
+            spaces.push(rows);
         }
         return spaces;
     }
@@ -29,11 +29,9 @@ class Grid {
         for (let x = 0; x <= 2 ; x++){
             // Loops through (vertical) box_col - begins with -1 because matrix include preceding row
             for (let y = 0; y <= 2; y++){
-                // console.log(`x: ${x}, y: ${y}`)
                 // Declare analyzed cells position relative to box
                 let x_box = colBox[x];
                 let y_box = rowBox[y];
-                // console.log(`x_box: ${x_box}, y_box: ${y_box}`)
                 // Adds condition to exclude cells outside Grid which are "forced" by 3x3 box
                 if ((x_box >= 0 && x_box < this.rows) && (y_box >= 0 && y_box < this.columns)) {
                     const neighbourCell = this.accessCell(x_box, y_box)
@@ -48,7 +46,7 @@ class Grid {
     }
 
     get size() {
-        return `rows: ${this.rows}, columns: ${this.columns}`
+        return `columns: ${this.columns}, rows: ${this.rows}`
     }
 
     accessCell(x,y){
@@ -56,20 +54,19 @@ class Grid {
     }
 
     get gridView() {
-        let grid = this.spaces
-        const gridView =[];
-        for (let x = 0; x < grid.length; x++){
-            const columns = [];
-            for(let y =0; y< grid[y].length; y++){
+        const gridView = [];
+        for (let y = 0; y < this.rows; y++){
+            const rows = [];
+            for(let x = 0; x < this.columns; x++){
                 const spaceVisual = '~'
                 const lifeVisual = '#'
                 if(this.spaces[x][y].isAlive){
-                    columns.push(lifeVisual);
+                    rows.push(lifeVisual);
                 } else {
-                    columns.push(spaceVisual);
+                    rows.push(spaceVisual);
                 }
             }
-            gridView.push(columns);
+            gridView.push(rows);
         }
         return gridView
     }
