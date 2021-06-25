@@ -1,10 +1,9 @@
-const {Space} = require('./Space.js')
+// const {Space} = require('./Space.js')
 const {Grid} = require('./Grid.js')
 
 class GameOfLife {
     constructor(columns, rows) {
         this.grid = new Grid(columns, rows)
-        // this.initialLife = initialLife
     }
 
     get cellGrid(){

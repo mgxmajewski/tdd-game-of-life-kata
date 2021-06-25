@@ -33,7 +33,7 @@ class Grid {
                 // Declare analyzed cells position relative to box
                 let x_box = colBox[x];
                 let y_box = rowBox[y];
-                console.log(`x_box: ${x_box}, y_box: ${y_box}`)
+                // console.log(`x_box: ${x_box}, y_box: ${y_box}`)
                 // Adds condition to exclude cells outside Grid which are "forced" by 3x3 box
                 if ((x_box >= 0 && x_box < this.rows) && (y_box >= 0 && y_box < this.columns)) {
                     const neighbourCell = this.accessCell(x_box, y_box)
@@ -62,7 +62,12 @@ class Grid {
             const columns = [];
             for(let y =0; y< grid[y].length; y++){
                 const spaceVisual = '~'
-                columns.push(spaceVisual);
+                const lifeVisual = '#'
+                if(this.spaces[x][y].isAlive){
+                    columns.push(lifeVisual);
+                } else {
+                    columns.push(spaceVisual);
+                }
             }
             gridView.push(columns);
         }

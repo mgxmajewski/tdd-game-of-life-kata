@@ -23,9 +23,29 @@ describe('Game of life', () => {
         expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
     });
 
+    test('should return array of arrays with one alive space', () => {
+        // Given
+        const GameOfLifeTest = new GameOfLife (4, 8)
+        // When
+        GameOfLifeTest.initiateLife = [[1,2]]
+        let result = GameOfLifeTest.cellGrid.gridView
+        // Then
+        expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "#", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+    });
+
+    test('should return array of arrays with 3 alive spaces', () => {
+        // Given
+        const GameOfLifeTest = new GameOfLife (4, 8)
+        // When
+        GameOfLifeTest.initiateLife = [[0,0], [0,2], [1,2]]
+        let result = GameOfLifeTest.cellGrid.gridView
+        // Then
+        expect(result).toEqual([["#", "~", "#", "~"], ["~", "~", "#", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+    });
+
     test('should check and return if initial life state is correct for one cell', () =>{
         // Given
-        const GameOfLifeTest =  new GameOfLife (4, 8)
+        const GameOfLifeTest = new GameOfLife (4, 8)
         // When
         GameOfLifeTest.initiateLife = [[1,2]]
         let result = GameOfLifeTest.cellGrid.accessCell(1,2).isAlive
