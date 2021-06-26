@@ -34,8 +34,6 @@ class GameOfLife {
                 const cellAnalysisResult = this.grid.analiseNeighbourCells(cellAnalysed)
                 if (cellAnalysisResult === 3){
                     cellsToRevive.push([x,y])
-                } else if (cellAnalysisResult > 3 && cellAnalysed.isAlive) {
-                    cellsToRevive.push([x,y])
                 } else if ((cellAnalysisResult === 3 || cellAnalysisResult === 2) && cellAnalysed.isAlive){
                     cellsToRevive.push([x,y])
                 }

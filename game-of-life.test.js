@@ -266,6 +266,16 @@ describe('Game of life', () => {
         ]
         // When
         GameOfLifeTest.updateGrid()
+        GameOfLifeTest.updateGrid()
+        GameOfLifeTest.updateGrid()
+        GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
+        // GameOfLifeTest.updateGrid()
         // Then
         let result = GameOfLifeTest.cellGrid.gridView
         const expected = [
@@ -288,6 +298,4 @@ describe('Game of life', () => {
         ];
         expect(result).toEqual(expected)
     });
-
-
 })
