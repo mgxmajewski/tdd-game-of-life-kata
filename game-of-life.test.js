@@ -21,14 +21,14 @@ describe('Game of life', () => {
         let result = GridToTest.gridView
         // Then
         const expected = [
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"]
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"]
         ];
         expect(result).toEqual(expected)
     });
@@ -41,14 +41,14 @@ describe('Game of life', () => {
         let result = GameOfLifeTest.cellGrid.gridView
         // Then
         const expected = [
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "#", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"]
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "#", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"]
         ];
         expect(result).toEqual(expected)
     });
@@ -62,14 +62,14 @@ describe('Game of life', () => {
         // Then
 
         const expected = [
-            ["#", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["#", "#", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"],
-            ["~", "~", "~", "~"]
+            ["#", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["#", "#", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"],
+            ["_", "_", "_", "_"]
         ];
         expect(result).toEqual(expected)
     });
@@ -83,10 +83,10 @@ describe('Game of life', () => {
         console.log(result)
         // Then
         const expected = [
-            ["~", "#", "#", "~", "~", "~", "~", "~"],
-            ["~", "~", "#", "~", "~", "~", "~", "~"],
-            ["~", "~", "~", "~", "~", "~", "~", "~"],
-            ["~", "~", "~", "~", "~", "~", "~", "~"]
+            ["_", "#", "#", "_", "_", "_", "_", "_"],
+            ["_", "_", "#", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_", "_"]
         ];
         expect(result).toEqual(expected)
     });
@@ -199,7 +199,6 @@ describe('Game of life', () => {
         GridToTest.accessCell(5,6).giveLife()
         GridToTest.accessCell(5,5).giveLife()
         const chosenCell = GridToTest.accessCell(5,5)
-        console.log(GridToTest)
         // Then
         let result = GridToTest.analiseNeighbourCells(chosenCell)
         expect(result).toEqual(3)
@@ -224,15 +223,15 @@ describe('Game of life', () => {
         // Then
         let result = GameOfLifeTest.cellGrid.gridView
         const expected = [
-            ["~", "~", "~", "~", "~", "~", "~", "~"],
-            ["~", "~", "~", "#", "#", "~", "~", "~"],
-            ["~", "~", "~", "#", "#", "~", "~", "~"],
-            ["~", "~", "~", "~", "~", "~", "~", "~"]
+            ["_", "_", "_", "_", "_", "_", "_", "_"],
+            ["_", "_", "_", "#", "#", "_", "_", "_"],
+            ["_", "_", "_", "#", "#", "_", "_", "_"],
+            ["_", "_", "_", "_", "_", "_", "_", "_"]
         ];
         expect(result).toEqual(expected)
     });
 
-    test('should return updated grid (flip row of cells to  become column)', () => {
+    test('should return updated grid (flip row of cells to become column)', () => {
         // Given
         let GameOfLifeTest = new GameOfLife (5, 5)
         GameOfLifeTest.initiateLife = [[1,2],[2,2],[3,2]]
@@ -249,4 +248,6 @@ describe('Game of life', () => {
         ];
         expect(result).toEqual(expected)
     });
+
+
 })
