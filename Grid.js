@@ -1,23 +1,23 @@
-const {Space} = require('./Space.js')
+const {Cell} = require('./Cell.js')
 
 class Grid {
     constructor(columns, rows) {
         this.columns = columns
         this.rows = rows
-        this.spaces = this.createSpace();
+        this.cells = this.createCells();
     }
 
-    createSpace() {
-        const spaces = [];
+    createCells() {
+        const cells = [];
         for (let x = 0; x < this.columns; x++) {
             let rows = [];
             for (let y = 0; y < this.rows; y++) {
-                const space = new Space(x,y);
-                rows.push(space);
+                const cell = new Cell(x,y);
+                rows.push(cell);
             }
-            spaces.push(rows);
+            cells.push(rows);
         }
-        return spaces;
+        return cells;
     }
 
     analiseNeighbourCells(cell){
@@ -50,7 +50,7 @@ class Grid {
     }
 
     accessCell(x,y){
-        return this.spaces[x][y]
+        return this.cells[x][y]
     }
 
     get gridView() {
@@ -60,7 +60,7 @@ class Grid {
             for(let x = 0; x < this.columns; x++){
                 const spaceVisual = '~'
                 const lifeVisual = '#'
-                if(this.spaces[x][y].isAlive){
+                if(this.cells[x][y].isAlive){
                     rows.push(lifeVisual);
                 } else {
                     rows.push(spaceVisual);

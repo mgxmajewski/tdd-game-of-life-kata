@@ -1,4 +1,4 @@
-class Space {
+class Cell {
     constructor(x, y) {
         this.x = x;
         this.y = y;
@@ -32,4 +32,4 @@ class Space {
         return this.y
     }
 }
-module.exports = {Space}
+module.exports = {Cell}

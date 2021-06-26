@@ -1,4 +1,4 @@
-// const {Space} = require('./Space.js')
+// const {Space} = require('./Cell.js')
 const {Grid} = require('./Grid.js')
 
 class GameOfLife {

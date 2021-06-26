@@ -1,5 +1,5 @@
 // const {Grid} = require('./GameOfLife.js')
-const {Space} = require('./Space.js')
+const {Cell} = require('./Cell.js')
 const {Grid} = require('./Grid.js')
 const {GameOfLife} = require('./GameOfLife.js')
 
@@ -14,7 +14,7 @@ describe('Game of life', () => {
         expect(result).toEqual('columns: 4, rows: 8');
     });
 
-    test('should return array of arrays with mocked spaces', () => {
+    test('should return array of arrays with mocked cell', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
         // When
@@ -23,7 +23,7 @@ describe('Game of life', () => {
         expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
     });
 
-    test('should return array of arrays with one alive space', () => {
+    test('should return array of arrays with one alive cell', () => {
         // Given
         const GameOfLifeTest = new GameOfLife (4, 8)
         // When
@@ -33,7 +33,7 @@ describe('Game of life', () => {
         expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "#", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
     });
 
-    test('should return array of arrays with 3 alive spaces', () => {
+    test('should return array of arrays with 3 alive cells', () => {
         // Given
         const GameOfLifeTest = new GameOfLife (4, 8)
         // When
@@ -43,7 +43,7 @@ describe('Game of life', () => {
         expect(result).toEqual([["#", "~", "~", "~"], ["~", "~", "~", "~"], ["#", "#", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
     });
 
-    test('should return array of arrays with 3 alive spaces (8 columns 4 rows)', () => {
+    test('should return array of arrays with 3 alive cells (8 columns 4 rows)', () => {
         // Given
         const GameOfLifeTest = new GameOfLife(8, 4)
         // When
@@ -64,48 +64,48 @@ describe('Game of life', () => {
         expect(result).toEqual(true)
     });
 
-    test('should return id of Space object', () => {
+    test('should return id of Cell object', () => {
         // Given
-        const SpaceToTest =  new Space(4, 8)
+        const CellToTest =  new Cell(4, 8)
         // When
-        let result = SpaceToTest.position
+        let result = CellToTest.position
         // Then
         expect(result).toEqual(`position-4-8`)
     });
 
     test('should return alive when checked', () => {
         // Given
-        const SpaceToTest =  new Space(4, 8)
+        const CellToTest =  new Cell(4, 8)
         // When
-        SpaceToTest.giveLife()
+        CellToTest.giveLife()
         // Then
-        let result = SpaceToTest.isAlive
+        let result = CellToTest.isAlive
         expect(result).toEqual(true)
     });
 
     test('should return false when cell first got alive then killed', () => {
         // Given
-        const SpaceToTest =  new Space(4, 8)
+        const CellToTest =  new Cell(4, 8)
         // When
-        SpaceToTest.giveLife()
-        SpaceToTest.killLife()
+        CellToTest.giveLife()
+        CellToTest.killLife()
         // Then
-        let result = SpaceToTest.isAlive
+        let result = CellToTest.isAlive
         expect(result).toEqual(false)
     });
 
     test('should return sum of alive neighbour cells (left edge case)', () => {
         // Given
-        const GridToTest2 = new Grid(10, 10)
+        const GridToTest = new Grid(10, 10)
         // When
-        GridToTest2.accessCell(0,4).giveLife()
-        GridToTest2.accessCell(0,6).giveLife()
-        GridToTest2.accessCell(1,4).giveLife()
-        GridToTest2.accessCell(1,5).giveLife()
-        GridToTest2.accessCell(1,6).giveLife()
-        const chosenCell = GridToTest2.accessCell(0,5)
+        GridToTest.accessCell(0,4).giveLife()
+        GridToTest.accessCell(0,6).giveLife()
+        GridToTest.accessCell(1,4).giveLife()
+        GridToTest.accessCell(1,5).giveLife()
+        GridToTest.accessCell(1,6).giveLife()
+        const chosenCell = GridToTest.accessCell(0,5)
         // Then
-        let result = GridToTest2.analiseNeighbourCells(chosenCell)
+        let result = GridToTest.analiseNeighbourCells(chosenCell)
         expect(result).toEqual(5)
     });
 
