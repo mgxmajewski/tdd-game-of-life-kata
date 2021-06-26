@@ -14,13 +14,23 @@ describe('Game of life', () => {
         expect(result).toEqual('columns: 4, rows: 8');
     });
 
-    test('should return array of arrays with mocked cell', () => {
+    test('should return array of arrays with mocked cells (without checking for life)', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
         // When
         let result = GridToTest.gridView
         // Then
-        expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+        const expected = [
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"]
+        ];
+        expect(result).toEqual(expected)
     });
 
     test('should return array of arrays with one alive cell', () => {
@@ -30,7 +40,17 @@ describe('Game of life', () => {
         GameOfLifeTest.initiateLife = [[1,2]]
         let result = GameOfLifeTest.cellGrid.gridView
         // Then
-        expect(result).toEqual([["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "#", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+        const expected = [
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "#", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"]
+        ];
+        expect(result).toEqual(expected)
     });
 
     test('should return array of arrays with 3 alive cells', () => {
@@ -40,7 +60,18 @@ describe('Game of life', () => {
         GameOfLifeTest.initiateLife = [[0,0], [0,2], [1,2]]
         let result = GameOfLifeTest.cellGrid.gridView
         // Then
-        expect(result).toEqual([["#", "~", "~", "~"], ["~", "~", "~", "~"], ["#", "#", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"], ["~", "~", "~", "~"]])
+
+        const expected = [
+            ["#", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["#", "#", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"],
+            ["~", "~", "~", "~"]
+        ];
+        expect(result).toEqual(expected)
     });
 
     test('should return array of arrays with 3 alive cells (8 columns 4 rows)', () => {
@@ -51,7 +82,13 @@ describe('Game of life', () => {
         let result = GameOfLifeTest.cellGrid.gridView
         console.log(result)
         // Then
-        expect(result).toEqual([["~", "#", "#", "~", "~", "~", "~", "~"], ["~", "~", "#", "~", "~", "~", "~", "~"], ["~", "~", "~", "~", "~", "~", "~", "~"], ["~", "~", "~", "~", "~", "~", "~", "~"]])
+        const expected = [
+            ["~", "#", "#", "~", "~", "~", "~", "~"],
+            ["~", "~", "#", "~", "~", "~", "~", "~"],
+            ["~", "~", "~", "~", "~", "~", "~", "~"],
+            ["~", "~", "~", "~", "~", "~", "~", "~"]
+        ];
+        expect(result).toEqual(expected)
     });
 
     test('should check and return if initial life state is correct for one cell', () =>{
@@ -186,6 +223,12 @@ describe('Game of life', () => {
         GameOfLifeTest.updateGrid()
         // Then
         let result = GameOfLifeTest.cellGrid.gridView
-        expect(result).toEqual([["~", "~", "~", "~", "~", "~", "~", "~"], ["~", "~", "~", "#", "#", "~", "~", "~"], ["~", "~", "~", "#", "#", "~", "~", "~"], ["~", "~", "~", "~", "~", "~", "~", "~"]])
+        const expected = [
+            ["~", "~", "~", "~", "~", "~", "~", "~"],
+            ["~", "~", "~", "#", "#", "~", "~", "~"],
+            ["~", "~", "~", "#", "#", "~", "~", "~"],
+            ["~", "~", "~", "~", "~", "~", "~", "~"]
+        ];
+        expect(result).toEqual(expected)
     });
 })
