@@ -9,23 +9,14 @@ const {GameOfLife} = require('./GameOfLife.js')
 const prompt = require('prompt');
 
 
-// const columnsInput = 0;
-// const rowsInput = 0;
-// const numberOfGenerations = 0;
-
-prompt.start();
-
-prompt.get(['columnsInput', 'rowsInput', 'numberOfGenerations'], function (err, result) {
-    if (err) { return onErr(err); }
-    console.log('Command-line input received:');
-    console.log('columnsInput : ' + result.columnsInput);
-    console.log('rowsInput : ' + result.rowsInput);
-    console.log('numberOfGenerations : ' + result.numberOfGenerations);
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
 });
 
-function onErr(err) {
-    console.log(err);
-    return 1;
-}
+readline.question('Who are you?', name => {
+    console.log(`Hey there ${name}!`);
+    readline.close();
+});
 
 
