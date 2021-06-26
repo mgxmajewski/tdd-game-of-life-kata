@@ -123,7 +123,7 @@ describe('Game of life', () => {
         expect(result).toEqual(4)
     });
 
-    test('should return sum of alive neighbour cells (corner case)', () => {
+    test('should return sum of alive neighbour cells (top left corner case)', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
         // When
@@ -134,6 +134,22 @@ describe('Game of life', () => {
         const chosenCell = GridToTest.accessCell(0,0)
         // Then
         let result = GridToTest.analiseNeighbourCells(chosenCell)
+        expect(result).toEqual(3)
+    });
+
+
+    test('should return sum of alive neighbour cells (bottom right corner case)', () => {
+        // Given
+        const GridToTest =  new Grid(4, 8)
+        // When
+        GridToTest.accessCell(2,6).giveLife()
+        GridToTest.accessCell(2,7).giveLife()
+        GridToTest.accessCell(3,6).giveLife()
+        GridToTest.accessCell(3,7).giveLife()
+        const chosenCell = GridToTest.accessCell(3,7)
+        // Then
+        let result = GridToTest.analiseNeighbourCells(chosenCell)
+        console.log(GridToTest.gridView)
         expect(result).toEqual(3)
     });
 
