@@ -231,4 +231,22 @@ describe('Game of life', () => {
         ];
         expect(result).toEqual(expected)
     });
+
+    test('should return updated grid (flip row of cells to  become column)', () => {
+        // Given
+        let GameOfLifeTest = new GameOfLife (5, 5)
+        GameOfLifeTest.initiateLife = [[1,2],[2,2],[3,2]]
+        // When
+        GameOfLifeTest.updateGrid()
+        // Then
+        let result = GameOfLifeTest.cellGrid.gridView
+        const expected = [
+            ["~", "~", "~", "~", "~"],
+            ["~", "~", "#", "~", "~"],
+            ["~", "~", "#", "~", "~"],
+            ["~", "~", "#", "~", "~"],
+            ["~", "~", "~", "~", "~"],
+        ];
+        expect(result).toEqual(expected)
+    });
 })
