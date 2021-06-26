@@ -30,10 +30,10 @@ class Grid {
             // Loops through (vertical) box_col - begins with -1 because matrix include preceding row
             for (let y = 0; y <= 2; y++){
                 // Declare analyzed cells position relative to box
-                let x_box = colBox[x];
-                let y_box = rowBox[y];
+                let x_box = colBox[y];
+                let y_box = rowBox[x];
                 // Adds condition to exclude cells outside Grid which are "forced" by 3x3 box
-                if ((x_box >= 0 && x_box < this.rows) && (y_box >= 0 && y_box < this.columns)) {
+                if ((x_box >= 0 && x_box < this.columns) && (y_box >= 0 && y_box < this.rows)) {
                     const neighbourCell = this.accessCell(x_box, y_box)
                     // console.log(neighbourCell)
                     if(neighbourCell.isAlive&&neighbourCell!==cell){
