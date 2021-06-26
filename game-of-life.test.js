@@ -147,4 +147,15 @@ describe('Game of life', () => {
         let result = chosenCell.position
         expect(result).toEqual('position-3-3')
     });
+
+    test('should return updated grid with one new cell', () => {
+        // Given
+        let GameOfLifeTest = new GameOfLife (8, 4)
+        GameOfLifeTest.initiateLife = [[4,1],[3,2],[4,2]]
+        // When
+        GameOfLifeTest.updateGrid()
+        // Then
+        let result = GameOfLifeTest.cellGrid.gridView
+        expect(result).toEqual([["~", "~", "~", "~", "~", "~", "~", "~"], ["~", "~", "~", "#", "#", "~", "~", "~"], ["~", "~", "~", "#", "#", "~", "~", "~"], ["~", "~", "~", "~", "~", "~", "~", "~"]])
+    });
 })
