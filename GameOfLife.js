@@ -56,7 +56,6 @@ class GameOfLife {
      * in cellsToRevive array. It is provided as argument to initiateLife setter.
      */
     updateGrid(){
-        const tempGrid = new Grid(this.columns, this.rows)
         const cellsToRevive = []
         for (let x = 0; x < this.columns; x++){
             for(let y = 0; y < this.rows; y++){
@@ -69,7 +68,7 @@ class GameOfLife {
                 }
             }
         }
-        this.updatedGrid = tempGrid
+        this.updatedGrid = new Grid(this.columns, this.rows)
         this.initiateLife = cellsToRevive
     }
 }
