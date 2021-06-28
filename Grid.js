@@ -67,7 +67,7 @@ class Grid {
      * from the Grid
      * @param x
      * @param y
-     * @return {*}
+     * @return {Cell}
      */
     accessCell(x,y){
         return this.cells[x][y]
@@ -75,6 +75,9 @@ class Grid {
 
     /**
      * Generates view of the grid.
+     * Returned view is a set of 2d array where:
+     * - Dead cells are represented by '_'
+     * - Alive cells are represented by '#'
      * @return {*[]}
      */
     get gridView() {
