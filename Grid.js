@@ -4,10 +4,16 @@ class Grid {
     constructor(columns, rows) {
         this.columns = columns
         this.rows = rows
-        this.cells = this.createCells();
+        this.cells = this.createGrid();
     }
 
-    createCells() {
+    /**
+     * Creates grid of cells.
+     * Size of the grid is defined by rows and columns properties
+     * from constructor.
+     * @return {*[]}
+     */
+    createGrid() {
         const cells = [];
         for (let x = 0; x < this.columns; x++) {
             let rows = [];
@@ -20,6 +26,13 @@ class Grid {
         return cells;
     }
 
+    /**
+     * Calculates how many neighbour (surrounding) cells are alive.
+     * Using convolution matrix this method iterate through
+     * all 8 surrounding neighbours of analyzed cell
+     * @param cell
+     * @return {number}
+     */
     analiseNeighbourCells(cell){
         let row = cell.yValue
         let col = cell.xValue
@@ -49,10 +62,21 @@ class Grid {
         return `columns: ${this.columns}, rows: ${this.rows}`
     }
 
+    /**
+     * Gives access to particular cell
+     * from the Grid
+     * @param x
+     * @param y
+     * @return {*}
+     */
     accessCell(x,y){
         return this.cells[x][y]
     }
 
+    /**
+     * Generates view of the grid.
+     * @return {*[]}
+     */
     get gridView() {
         const gridView = [];
         for (let y = 0; y < this.rows; y++){
