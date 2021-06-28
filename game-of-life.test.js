@@ -249,7 +249,7 @@ describe('Game of life', () => {
         expect(result).toEqual(expected)
     });
 
-    test('should return updated grid Pulsar second state', () => {
+    test('should return updated grid Pulsar second state after full period (3 updated + 1 initial)', () => {
         // Given
         let GameOfLifeTest = new GameOfLife (16, 16)
         GameOfLifeTest.initiateLife = [
@@ -269,13 +269,6 @@ describe('Game of life', () => {
         GameOfLifeTest.updateGrid()
         GameOfLifeTest.updateGrid()
         GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
-        // GameOfLifeTest.updateGrid()
         // Then
         let result = GameOfLifeTest.cellGrid.gridView
         const expected = [
