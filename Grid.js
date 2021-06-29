@@ -11,7 +11,7 @@ class Grid {
     constructor(columns, rows) {
         this.columns = columns
         this.rows = rows
-        this.cells = this.createGrid();
+        this.grid = this.createGrid();
     }
 
     /**
@@ -82,7 +82,7 @@ class Grid {
      * @return {Cell}
      */
     accessCell(x,y){
-        return this.cells[x][y]
+        return this.grid[x][y]
     }
 
     /**
@@ -99,7 +99,7 @@ class Grid {
             for(let x = 0; x < this.columns; x++){
                 const spaceVisual = '_'
                 const lifeVisual = '#'
-                if(this.cells[x][y].isAlive){
+                if(this.grid[x][y].isAlive){
                     rows.push(lifeVisual);
                 } else {
                     rows.push(spaceVisual);
