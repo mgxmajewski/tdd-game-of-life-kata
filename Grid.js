@@ -1,6 +1,13 @@
 const {Cell} = require('./Cell.js')
 
 class Grid {
+    /**
+     * Class Grid is used to create grid of cell (which are instances of Cell class).
+     * Size of the grid is defined by arguments given to constructor.
+     * State is kept in this.grid property and can be changed via accessCell method.
+     * @param columns
+     * @param rows
+     */
     constructor(columns, rows) {
         this.columns = columns
         this.rows = rows
@@ -29,7 +36,8 @@ class Grid {
     /**
      * Calculates how many neighbour (surrounding) cells are alive.
      * Using convolution matrix this method iterate through
-     * all 8 surrounding neighbours of analyzed cell
+     * all 8 surrounding neighbours of analyzed cell and counts
+     * how many neighbours are alive in actual state.
      * @param cell
      * @return {number}
      */
@@ -58,6 +66,10 @@ class Grid {
         return result
     }
 
+    /**
+     * Display size of the Grid
+     * @return {string}
+     */
     get size() {
         return `columns: ${this.columns}, rows: ${this.rows}`
     }
