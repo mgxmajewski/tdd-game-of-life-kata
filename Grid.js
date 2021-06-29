@@ -2,13 +2,13 @@ const {Cell} = require('./Cell.js')
 
 class Grid {
     /**
-     * Class Grid is used to create grid of cell (which are instances of Cell class).
+     * Class Grid is used to create 2d grid of cells (which are instances of Cell class).
      * Size of the grid is defined by arguments given to constructor.
      * State is kept in this.grid property and can be changed via accessCell method.
      * @param columns
      * @param rows
      */
-    constructor(columns, rows) {
+    constructor(columns=10, rows=10) {
         this.columns = columns
         this.rows = rows
         this.grid = this.createGrid();

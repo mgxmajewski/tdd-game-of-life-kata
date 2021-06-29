@@ -14,6 +14,15 @@ describe('Game of life', () => {
         expect(result).toEqual('columns: 4, rows: 8');
     });
 
+    test('should return create grid with default number of 10 columns and 10 rows', () => {
+        // Given
+        const GridToTest =  new Grid()
+        // When
+        let result = GridToTest.size
+        // Then
+        expect(result).toEqual('columns: 10, rows: 10');
+    });
+
     test('should return array of arrays with mocked cells (without checking for life)', () => {
         // Given
         const GridToTest =  new Grid(4, 8)
