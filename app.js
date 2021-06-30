@@ -34,21 +34,25 @@ game.initiateLife = [
 ]
 
 
-for (let i = 0; i < gen; i++){
-
-    game.updateGrid()
-    let grid = game.cellGrid.gridView
-    const displayBoard = (board) => {
-        let buffer = '';
-        for (let i = 0; i < board.length; i++) {
-            for (let x = 0; x < board[i].length; x++) {
-                buffer += board[i][x];
+let i = 0;
+do {
+    task(i);
+    i++;
+} while (i < gen);
+function task(i) {
+    setTimeout(function() {
+        game.updateGrid()
+        let grid = game.cellGrid.gridView
+        const displayBoard = (board) => {
+            let buffer = '';
+            for (let i = 0; i < board.length; i++) {
+                for (let x = 0; x < board[i].length; x++) {
+                    buffer += board[i][x];
+                }
+                buffer += '\n';
             }
-            buffer += '\n';
+            console.log(buffer);
         }
-        console.log(buffer);
-    }
-    displayBoard(grid)
+        displayBoard(grid)
+    }, 2000 * i);
 }
-
-
