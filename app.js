@@ -59,7 +59,6 @@ do {
 function task(i) {
     setTimeout(function() {
         console.clear()
-        game.updateGrid()
         let grid = game.cellGrid.gridView
         const displayBoard = (board) => {
             let buffer = '';
@@ -72,6 +71,7 @@ function task(i) {
             console.log(buffer);
         }
         displayBoard(grid)
+        game.updateGrid()
     }, 500 * i);
     console.clear()
 }
