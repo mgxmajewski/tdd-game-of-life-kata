@@ -10,11 +10,6 @@
 const {GameOfLife} = require('./GameOfLife.js')
 const prompt = require('prompt-sync')();
 
-const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
 const col = prompt('Columns: ');
 const row = prompt('Rows: ');
 const gen = prompt('Generations: ');
@@ -41,6 +36,7 @@ do {
 } while (i < gen);
 function task(i) {
     setTimeout(function() {
+        console.clear()
         game.updateGrid()
         let grid = game.cellGrid.gridView
         const displayBoard = (board) => {
@@ -54,5 +50,7 @@ function task(i) {
             console.log(buffer);
         }
         displayBoard(grid)
-    }, 2000 * i);
+
+    }, 500 * i);
+    console.clear()
 }
