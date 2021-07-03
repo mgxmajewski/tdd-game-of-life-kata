@@ -13,10 +13,6 @@ class Cell {
         this.alive = true;
     }
 
-    killLife() {
-        this.alive = false;
-    }
-
     /**
      *
      * @return {boolean}

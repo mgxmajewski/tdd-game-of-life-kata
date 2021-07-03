@@ -131,12 +131,12 @@ describe('Game of life', () => {
 
     test('should return false when cell first got alive then killed', () => {
         // Given
-        const CellToTest =  new Cell(4, 8)
+        let GameOfLifeTest = new GameOfLife (8, 4)
         // When
-        CellToTest.giveLife()
-        CellToTest.killLife()
+        GameOfLifeTest.cellGrid.accessCell(1,1).giveLife()
+        GameOfLifeTest.updateGrid()
         // Then
-        let result = CellToTest.isAlive
+        let result = GameOfLifeTest.cellGrid.accessCell(1,1).isAlive
         expect(result).toEqual(false)
     });
 
