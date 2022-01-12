@@ -38,6 +38,7 @@ const KarelP15 =[
     [5,12],[12,12],
     [6,13],[7,13],[8,13],[13,13],[10,13],[11,13],
 ]
+
 const mP15 =[
     [6,3],[11,3],
     [6,4],[7,4],[8,4],[9,4],[10,4],[11,4],
@@ -49,7 +50,7 @@ const mP15 =[
     [6,13],[7,13],[8,13],[9,13],[10,13],[11,13],
 ]
 
-game.initiateLife = mP15
+game.initiateLife = pulsar
 
 let i = 0;
 do {
@@ -72,6 +73,6 @@ function task(i) {
         }
         displayBoard(grid)
         game.updateGrid()
-    }, 500 * i);
-    console.clear()
+    }, 100 * i);
+    // console.clear()
 }
